@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,28 +23,28 @@ Route::prefix('v1')->group(function () {
      */
     Route::post('/auth', [AuthController::class, "auth"]);
 
-    /**
-     * User management routes
-     */
+    Route::middleware('auth:sanctum')->group(function () {
+        /**
+         * User management routes
+         */
+        Route::prefix('/user')->group(function () {
+            Route::post('/add', [UserController::class, "add"]);
+            Route::post('/delete/{id}', [UserController::class, "delete"]);
     
-    Route::middleware('auth:sanctum')->prefix('/user')->group(function () {
-        Route::post('/add', [UserController::class, "add"]);
-        Route::post('/delete/{id}', [UserController::class, "delete"]);
-
-        //Bonus routes :)
-        Route::get('/whoami', [UserController::class, "whoami"]);
-        Route::post('/logout', [UserController::class, "logout"]);
-    });
-
-    /**
-     * Group management routes
-     */
+            //Bonus routes :)
+            Route::get('/whoami', [UserController::class, "whoami"]);
+            Route::post('/logout', [UserController::class, "logout"]);
+        });
     
-    Route::middleware('auth:sanctum')->prefix('/group')->group(function () {
-        Route::post('/add', [GroupController::class, "add"]);
-        Route::post('/delete/{id}', [GroupController::class, "delete"]);
-        Route::post('/{id}/remove/{user_id}', [GroupController::class, "removeFromGroup"]);
-        Route::post('/{id}/add/{user_id}', [GroupController::class, "addToGroup"]);
+        /**
+         * Group management routes
+         */
+        Route::prefix('/group')->group(function () {
+            Route::post('/add', [GroupController::class, "add"]);
+            Route::post('/delete/{id}', [GroupController::class, "delete"]);
+            Route::post('/{id}/remove/{user_id}', [GroupController::class, "removeFromGroup"]);
+            Route::post('/{id}/add/{user_id}', [GroupController::class, "addToGroup"]);
+        });
     });
 });
 

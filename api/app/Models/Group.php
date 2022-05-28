@@ -12,6 +12,8 @@ class Group extends Model
     protected $table = 'group';
 
     protected $fillable = [
-        'group_name',
+        'group_name'
     ];
+    
+    public $timestamps = false;
 }
