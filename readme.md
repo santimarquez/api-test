@@ -85,10 +85,15 @@ This endpoint revokes the current logged user's token
 
 This endpoint expects a JSON string with the following format:
 
+```javascript
+{
+    "group_name": "InterNations cool people"
+}
+```
 ---
 `/api/v1/group/delete/{id}`
 
-This endpoint expects the user's id to be send in the path
+This endpoint expects the group's id to be send in the path
 
 ---
 `/api/v1/group/{id}/ad/{user_id}`
