@@ -36,6 +36,7 @@ Postman must be configured with the following headers:
 
 
 ### User related endpoints
+
 `/api/v1/user/add`
 
 This endpoint expects a JSON string with the following format:
@@ -53,6 +54,7 @@ This endpoint expects a JSON string with the following format:
 `/api/v1/user/delete/{id}`
 
 This endpoint expects the user's id to be send in the path
+
 ---
 
 `/api/v1/user/whoami`
