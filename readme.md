@@ -43,6 +43,7 @@ Postman must be configured with the following headers:
 * `Content-Type: application/json`
 * `Accept: application/json`
 
+These headers have already been configured in the Postman's collections included in 'Documentation/Postman Collections'.
 ### Auth related endpoints
 
 `/api/v1/auth`
