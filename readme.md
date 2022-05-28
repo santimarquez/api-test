@@ -18,13 +18,14 @@ The models are located in the 'Documentation' directory.
 For launching the API in a docker environment (it requires Docker installer locally):
 * **Initialize containers:** `docker compose up -d`
 * **Install dependencies:** `docker exec internations-test-InterNationsApi-1 composer install`
-* **Launch migrations:** `docker exec internations-test-InterNationsApi-1 php artisan migrate`
+* **Launch migrations:** `docker exec internations-test-InterNationsApi-1 php artisan migrate --seed`
 
 For launching the API locally (it requires PHP - **extension=pdo_mysql** enabled - and Composer installed locally):
 
 * `cd /app`
 * Rename the .env.example to .env
 * `composer install`
+* `php artisan migrate --seed`
 * `php artisan serve`
 
 ## How to use the API
