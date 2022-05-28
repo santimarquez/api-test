@@ -15,4 +15,6 @@ class UserGroup extends Model
         'id_user',
         'id_group'
     ];
+    
+    public $timestamps = false;
 }

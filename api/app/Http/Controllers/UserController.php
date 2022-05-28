@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function add(Request $request) {
+
         $request->validate([
             'id_role' => 'required|exists:App\Models\Role,id',
             'user_name' => 'required|unique:App\Models\User|min:4|max:100',
@@ -33,7 +34,6 @@ class UserController extends Controller
                 "msg" => "Error adding the user"
             ], 500);
         }
-
     }
 
     public function delete(Request $request, $id) {
@@ -53,15 +53,16 @@ class UserController extends Controller
         } else {
             return response()->json(["msg" => "Error deleting the user"], 500);
         }
-
     }
 
     public function whoami() {
+
         return Auth::user();
     }
     
 
     public function logout() {
+        
         if(Auth::user()->tokens()->delete()) {
             return response()->json([
                 "msg" => "User correctly logged out"

@@ -42,8 +42,8 @@ Route::prefix('v1')->group(function () {
         Route::prefix('/group')->group(function () {
             Route::post('/add', [GroupController::class, "add"]);
             Route::post('/delete/{id}', [GroupController::class, "delete"]);
-            Route::post('/{id}/remove/{user_id}', [GroupController::class, "removeFromGroup"]);
             Route::post('/{id}/add/{user_id}', [GroupController::class, "addToGroup"]);
+            Route::post('/{id}/remove/{user_id}', [GroupController::class, "removeFromGroup"]);
         });
     });
 });
