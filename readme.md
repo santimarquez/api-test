@@ -56,6 +56,7 @@ This endpoint expects the user's id to be send in the path
 ---
 
 `/api/v1/user/whoami`
+
 This endpoint returns the current logged user
 
 ---
@@ -64,18 +65,22 @@ This endpoint returns the current logged user
 ### Group related endpoints
 
 `/api/v1/group/add`
+
 This endpoint expects a JSON string with the following format:
 
 ---
 `/api/v1/group/delete/{id}`
+
 This endpoint expects the user's id to be send in the path
 
 ---
 `/api/v1/group/{id}/ad/{user_id}`
+
 This endpoint adds a given user to the given group. Both variables must be sent in the PATH
 
 ---
 `/api/v1/group/{id}/remove/{user_id}`
+
 This endpoint removes a given user to the given group. Both variables must be sent in the PATH
 
 ---
