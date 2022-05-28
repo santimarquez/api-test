@@ -1,7 +1,7 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "InterNations Test API.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {

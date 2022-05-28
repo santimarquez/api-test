@@ -19,7 +19,6 @@ services:
       - DB_PORT=3306
       - DB_DATABASE=InterNations
       - DB_USERNAME=InterNations
-      - DB_DATABASE=InterNations
     volumes:
       - './api:/app'
     depends_on:

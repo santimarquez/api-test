@@ -16,17 +16,25 @@ The models are located in the 'Documentation' directory.
 ## How to Install and Run
 
 For launching the API in a docker environment (it requires Docker installer locally):
-* **Initialize containers:** `docker compose up -d`
-* **Install dependencies:** `docker exec internations-test-InterNationsApi-1 composer install`
-* **Launch migrations:** `docker exec internations-test-InterNationsApi-1 php artisan migrate --seed`
+* **Install dependencies:** 
 
-For launching the API locally (it requires PHP - **extension=pdo_mysql** enabled - and Composer installed locally):
+        cd api
+        composer install
+* **Initialize containers:** 
 
-* `cd /app`
-* Rename the .env.example to .env
-* `composer install`
-* `php artisan migrate --seed`
-* `php artisan serve`
+        docker compose up -d
+
+
+* **Launch migrations:** 
+
+        docker exec internations-test-InterNationsApi-1 php artisan migrate --seed
+
+You can launch the web server locally (it requires PHP with **extension=pdo_mysql** enabled):
+
+        docker stop internations-test-InterNationsApi-1
+Rename the .env.example to .env
+
+        php artisan serve
 
 ## How to use the API
 
@@ -41,12 +49,23 @@ Postman must be configured with the following headers:
 
 Used to retrieve the auth token. This endpoint expects a JSON string with the following format:
 
+Admin user:
 ```javascript
 {
     "user_name": "admin_user",
     "password": "123pwd"
 }
 ```
+Regular user:
+```javascript
+{
+    "user_name": "admin_user",
+    "password": "123pwd"
+}
+```
+
+The obtained token must be configured as Bearer Token for all the requests.
+
 ---
 
 ### User related endpoints
