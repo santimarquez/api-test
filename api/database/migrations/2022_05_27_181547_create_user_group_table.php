@@ -18,6 +18,7 @@ class CreateUserGroupTable extends Migration
             $table->unsignedInteger('id_user')->index('FK_user_idx');
             $table->unsignedInteger('id_group')->index('FK_group_idx');
             $table->dateTime('create_time')->nullable()->useCurrent();
+            $table->unique(['id_user', 'id_group']);
         });
     }
 
