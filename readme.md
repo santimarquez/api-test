@@ -20,7 +20,7 @@ For launching the API in a docker environment (it requires Docker installer loca
 * **Install dependencies:** `docker exec internations-test-InterNationsApi-1 composer install`
 * **Launch migrations:** `docker exec internations-test-InterNationsApi-1 php artisan migrate`
 
-For launching the API locally (it requires PHP - extension=pdo_mysql enabled - and Composer installed locally):
+For launching the API locally (it requires PHP - **extension=pdo_mysql** enabled - and Composer installed locally):
 
 * `cd /app`
 * Rename the .env.example to .env
@@ -28,6 +28,12 @@ For launching the API locally (it requires PHP - extension=pdo_mysql enabled - a
 * `php artisan serve`
 
 ## How to use the API
+
+Postman must be configured with the following headers:
+
+* `Content-Type: application/json`
+* `Accept: application/json`
+
 
 ### User related endpoints
 `/api/v1/user/add`
@@ -42,3 +48,34 @@ This endpoint expects a JSON string with the following format:
     "password_confirmation": "123pwd"
 }
 ```
+---
+
+`/api/v1/user/delete/{id}`
+
+This endpoint expects the user's id to be send in the path
+---
+
+`/api/v1/user/whoami`
+This endpoint returns the current logged user
+
+---
+`/api/v1/user/logout`
+
+### Group related endpoints
+
+`/api/v1/group/add`
+This endpoint expects a JSON string with the following format:
+
+---
+`/api/v1/group/delete/{id}`
+This endpoint expects the user's id to be send in the path
+
+---
+`/api/v1/group/{id}/ad/{user_id}`
+This endpoint adds a given user to the given group. Both variables must be sent in the PATH
+
+---
+`/api/v1/group/{id}/remove/{user_id}`
+This endpoint removes a given user to the given group. Both variables must be sent in the PATH
+
+---
