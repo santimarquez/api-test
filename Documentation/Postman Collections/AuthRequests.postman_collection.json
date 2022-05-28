@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "75fcba1b-8a50-4775-a41a-9bcb92bf29f1",
+		"name": "AuthRequests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16235651"
+	},
+	"item": [
+		{
+			"name": "AuthRequest",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_name\": \"admin_user\",\r\n    \"password\": \"123pwd\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}{{api_version}}/auth",
+					"host": [
+						"{{host}}{{api_version}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "2ac2dd7c-b48b-4312-8d92-e0acb3814216",
+		"name": "Group Request",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16235651"
+	},
+	"item": [
+		{
+			"name": "AddGroupRequest",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"group_name\": \"AlertaCoches Cool People\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{api_version}}/group/add",
+					"host": [
+						"{{host}}{{api_version}}"
+					],
+					"path": [
+						"group",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteGroupRequest",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_role\": 1,\r\n    \"user_name\": \"regular_user\",\r\n    \"password\": \"123pwd\",\r\n    \"password_confirmation\": \"123pwd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{api_version}}/group/delete/4",
+					"host": [
+						"{{host}}{{api_version}}"
+					],
+					"path": [
+						"group",
+						"delete",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddUserToGroupRequest",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_role\": 1,\r\n    \"user_name\": \"regular_user\",\r\n    \"password\": \"123pwd\",\r\n    \"password_confirmation\": \"123pwd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{api_version}}/group/1/add/1",
+					"host": [
+						"{{host}}{{api_version}}"
+					],
+					"path": [
+						"group",
+						"1",
+						"add",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RemoveUserFromGroupRequest",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_role\": 1,\r\n    \"user_name\": \"regular_user\",\r\n    \"password\": \"123pwd\",\r\n    \"password_confirmation\": \"123pwd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}{{api_version}}/group/1/remove/1",
+					"host": [
+						"{{host}}{{api_version}}"
+					],
+					"path": [
+						"group",
+						"1",
+						"remove",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "1|duRaVvgxpTEbqPKkiJ4oxABPCZUOagtRrwnwGkpS",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
