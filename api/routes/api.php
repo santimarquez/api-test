@@ -31,7 +31,7 @@ Route::prefix('v1')->group(function () {
         Route::post('/delete/{id}', [UserController::class, "delete"]);
 
         //Bonus routes :)
-        Route::post('/whoami', [UserController::class, "whoami"]);
+        Route::get('/whoami', [UserController::class, "whoami"]);
         Route::post('/logout', [UserController::class, "logout"]);
     });
 
