@@ -34,6 +34,19 @@ Postman must be configured with the following headers:
 * `Content-Type: application/json`
 * `Accept: application/json`
 
+### Auth related endpoints
+
+`/api/v1/auth`
+
+Used to retrieve the auth token. This endpoint expects a JSON string with the following format:
+
+```javascript
+{
+    "user_name": "admin_user",
+    "password": "123pwd"
+}
+```
+---
 
 ### User related endpoints
 
@@ -63,6 +76,8 @@ This endpoint returns the current logged user
 
 ---
 `/api/v1/user/logout`
+
+This endpoint revokes the current logged user's token
 
 ### Group related endpoints
 
