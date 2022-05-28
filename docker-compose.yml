@@ -8,6 +8,8 @@ services:
       - ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_USER=InterNations
       - MARIADB_DATABASE=InterNations
+    ports:
+      - '13306:3306'
   InterNationsApi:
     image: docker.io/bitnami/laravel:9
     ports:
