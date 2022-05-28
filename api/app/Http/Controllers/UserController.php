@@ -23,11 +23,17 @@ class UserController extends Controller
         $user->user_name = $request->user_name;
         $user->password = Hash::make($request->password);
         $user->update_time = Carbon::now();
-        $user->save();
 
-        return response()->json([
-            "msg" => "User correctly added"
-        ], 200);
+        if($user->save()) {
+            return response()->json([
+                "msg" => "User correctly added"
+            ], 200);
+        } else{
+            return response()->json([
+                "msg" => "Error adding the user"
+            ], 500);
+        }
+
     }
 
     public function delete(Request $request, $id) {
