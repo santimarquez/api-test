@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserGroup;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -27,11 +28,11 @@ class UserController extends Controller
 
         if($user->save()) {
             return response()->json([
-                "msg" => "User correctly added"
+                "msg" => "User correctly added."
             ], 200);
         } else{
             return response()->json([
-                "msg" => "Error adding the user"
+                "msg" => "Error adding the user."
             ], 500);
         }
     }
@@ -39,19 +40,23 @@ class UserController extends Controller
     public function delete(Request $request, $id) {
 
         if ($id == Auth::user()->id) {
-            return response()->json(["msg" => "Sorry, you can't delete yourself"], 400);
+            return response()->json(["msg" => "Sorry, you can't delete yourself."], 400);
         }
 
         if(empty(User::find($id))) {
-            return response()->json(["msg" => "The user doesn't exist"], 400);
+            return response()->json(["msg" => "The user doesn't exist."], 400);
+        }
+
+        if(UserGroup::where("id_user", $id)) {
+            return response()->json(["msg" => "The user can't be deleted. It still belongs to a group."], 400);
         }
 
         if (User::where('id', $id)->delete()) {
             return response()->json([
-                "msg" => "User correctly deleted"
+                "msg" => "User correctly deleted."
             ], 200);
         } else {
-            return response()->json(["msg" => "Error deleting the user"], 500);
+            return response()->json(["msg" => "Error deleting the user."], 500);
         }
     }
 
@@ -65,11 +70,11 @@ class UserController extends Controller
         
         if(Auth::user()->tokens()->delete()) {
             return response()->json([
-                "msg" => "User correctly logged out"
+                "msg" => "User correctly logged out."
             ], 200);
         } else{
             return response()->json([
-                "msg" => "Error logging out"
+                "msg" => "Error logging out."
             ], 500);
         }
     }

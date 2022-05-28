@@ -60,6 +60,13 @@ class GroupController extends Controller
             return response()->json(["msg" => "The user doesn't exists."], 400);
         }
 
+        if(UserGroup::where([
+            "id_group" => $id,
+            "id_user" => $user_id
+        ])->first()){
+            return response()->json(["msg" => "The user already belongs to that group."], 400);
+        }
+
         $userGroup = new UserGroup();
         $userGroup->id_user = $user_id;
         $userGroup->id_group = $id;
