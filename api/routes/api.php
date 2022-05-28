@@ -23,7 +23,7 @@ Route::prefix('v1')->group(function () {
      */
     Route::post('/auth', [AuthController::class, "auth"])->name('auth');
 
-    Route::middleware('auth:sanctum')->group(function () {
+    Route::middleware(['auth:sanctum', 'checkusecasepermissions'])->group(function () {
         /**
          * User management routes
          */
