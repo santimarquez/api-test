@@ -15,8 +15,13 @@ The models are located in the 'Documentation' directory.
 
 ## How to Install and Run
 
-**Initialize containers:** *docker compose up -d*
+For launching the API in a docker environment:
+* **Initialize containers:** `docker compose up -d`
+* **Launch migrations:** `docker exec internations-test-InterNationsApi-1 php artisan migrate`
 
-**Launch migrations:** *docker exec internations-test-InterNationsApi-1 php artisan migrate*
+For launching the API locally:
 
+* `cd /app`
+* Rename the .env.example to .env
+* `php artisan serve`
 ## How to use the API
