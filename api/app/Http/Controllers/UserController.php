@@ -29,7 +29,7 @@ class UserController extends Controller
         if($user->save()) {
             return response()->json([
                 "msg" => "User correctly added."
-            ], 200);
+            ], 201);
         } else{
             return response()->json([
                 "msg" => "Error adding the user."

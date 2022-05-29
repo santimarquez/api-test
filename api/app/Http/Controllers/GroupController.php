@@ -21,7 +21,7 @@ class GroupController extends Controller
         if($group->save()) {
             return response()->json([
                 "msg" => "Group correctly created."
-            ], 200);
+            ], 201);
         } else {
             return response()->json([
                 "msg" => "Error creating the group."
