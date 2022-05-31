@@ -44,7 +44,7 @@ class UserController extends Controller
             return Response::send("The user doesn't exist.", 400);
         }
 
-        if(UserGroup::where("id_user", $id)) {
+        if(UserGroup::where("id_user", $id)->first()) {
             return Response::send("The user can't be deleted. It still belongs to a group.", 400);
         }
 
