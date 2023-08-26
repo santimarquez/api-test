@@ -1,4 +1,4 @@
-# Internations Test
+# API Test
 
 User and group management API with permissions management.
 This test has been prepared with the following technologies:
